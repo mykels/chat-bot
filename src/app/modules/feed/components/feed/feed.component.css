@@ -1,0 +1,21 @@
+.box-container {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.blue-box {
+  background: #6666FF;
+  height: 100px;
+  width: 100px;
+  /*height: 100%;*/
+  /*width: 100%;*/
+}
+
+.red-box {
+  background: #FF7F7F;
+  height: 100px;
+  width: 100px;
+  /*height: 100%;*/
+  /*width: 100%;*/
+}
