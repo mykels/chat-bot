@@ -1,0 +1,12 @@
+<div class="messages-container">
+  <div class="messages-header">
+    <div class="messages-title">
+      Messenger
+    </div>
+  </div>
+  <div class="message-list-container">
+    <cb-message *ngFor="let message of messages"
+                [message]="message">
+    </cb-message>
+  </div>
+</div>

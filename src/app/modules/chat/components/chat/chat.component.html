@@ -1,0 +1,26 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <h4>Chat</h4>
+  </div>
+  <div class="chat-panel">
+    <div class="user-chat" *ngIf="contactedUser">
+      <cb-correspondence [user]="contactedUser"></cb-correspondence>
+    </div>
+    <div class="user-list">
+      <div *ngFor="let user of (userState$ | async).users trackBy:trackById"
+           class="user-container" [@listAppear]
+           (click)="onContactClick(user)"
+           [attr.disabled]="!user.online">
+        <div class="user-avatar-container">
+          <img [src]="user.avatar"/>
+        </div>
+        <div class="user-name-container">
+          {{user.name}}
+        </div>
+        <div class="user-online-indicator"
+             [ngClass]="{'online-indicator':user.online,'offline-indicator':!user.online}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

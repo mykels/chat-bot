@@ -1,0 +1,16 @@
+<div class="message-container" (click)="onClick()" [@listAppear]>
+  <div class="sender-avatar-container">
+    <img src="assets/images/avatars/dy.jpg"/>
+  </div>
+  <div class="message-content-container">
+    <div class="sender-name-container">
+      {{message.sender}}
+    </div>
+    <div class="summary-container">
+      {{message.summary}}
+    </div>
+  </div>
+  <div class="message-date-container">
+    {{message.date |  date:"dd/MM/yy HH:mm" }}
+  </div>
+</div>

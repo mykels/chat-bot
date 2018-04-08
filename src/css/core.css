@@ -1,11 +1,77 @@
-html, body, .map-container {
+@font-face {
+  font-family: 'Segoeuisl';
+  src: url('../assets/fonts/segoe-ui.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Pfennig';
+  src: url('../assets/fonts/pfennig-webfont.woff') format('woff');
+}
+
+/********************************************
+                global
+*********************************************/
+
+html, body {
+  background-color: #ffffff;
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
+  direction: ltr;
   overflow: hidden;
+  -webkit-font-smoothing: antialiased !important;
 }
 
-html, body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+* {
+  font-family: 'Segoeuisl', 'Pfennig', 'Helvetica', sans-serif;
+}
+
+/********************************************
+                scrollbar
+*********************************************/
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 3px rgba(171, 171, 171, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(171, 171, 171, 0.3);
+  -webkit-box-shadow: inset 0 0 3px rgba(171, 171, 171, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(171, 171, 171, 0.3);
+}
+
+/********************************************
+                flex helpers
+*********************************************/
+
+.f-row {
+  display: flex;
+  flex-flow: row;
+}
+
+.f-col {
+  display: flex;
+  flex-flow: column;
+}
+
+.fr-row {
+  display: flex;
+  flex-flow: row-reverse;
+}
+
+.fr-col{
+  display: flex;
+  flex-flow: column-reverse;
 }

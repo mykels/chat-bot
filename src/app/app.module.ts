@@ -11,7 +11,7 @@ import {BrowserModule} from '@angular/platform-browser';
   ],
   declarations: [
     AppComponent,
-    MasterComponent
+    MasterComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

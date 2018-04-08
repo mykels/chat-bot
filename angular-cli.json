@@ -16,7 +16,8 @@
       "tsconfig": "tsconfig.json",
       "prefix": "gz",
       "styles": [
-        "css/core.css"
+        "css/core.css",
+        "../node_modules/font-awesome/css/font-awesome.css"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

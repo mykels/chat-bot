@@ -1,0 +1,31 @@
+.messages-container {
+  display: grid;
+  height: 100%;
+  grid-template-rows: repeat(12, 1fr);
+  margin-left: 1px;
+}
+
+.messages-header {
+  display: grid;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  grid-row: 1/2;
+  font-family: "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.messages-title {
+  grid-column: span 4;
+  align-self: center;
+  justify-self: center;
+}
+
+.message-list-container {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  grid-row: 2/13;
+  scroll-behavior: smooth;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

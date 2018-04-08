@@ -98,8 +98,8 @@
       "check-type"
     ],
 
-    "directive-selector": [true, "attribute", "ca", "camelCase"],
-    "component-selector": [true, "element", "ca", "kebab-case"],
+    "directive-selector": [true, "attribute", "cb", "camelCase"],
+    "component-selector": [true, "element", "cb", "kebab-case"],
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
     "use-host-property-decorator": true,
