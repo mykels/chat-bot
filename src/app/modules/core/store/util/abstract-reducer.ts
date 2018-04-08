@@ -15,7 +15,7 @@ export abstract class AbstractReducer<T, A extends Action> {
   }
 
   default() {
-    
+
   }
 
 }
