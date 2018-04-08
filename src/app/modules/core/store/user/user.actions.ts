@@ -1,5 +1,5 @@
 import {Action} from '@ngrx/store';
-import {User} from '../../user/types/user';
+import {User} from '../../../user/types/user';
 
 export const ADD_USER = 'ADD_USER';
 export const UPDATE_USER = 'UPDATE_USER';

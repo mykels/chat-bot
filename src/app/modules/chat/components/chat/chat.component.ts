@@ -3,7 +3,7 @@ import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
 import {CHAT_ANIMATIONS} from './chat.animations';
 import {User} from '../../../user/types/user';
-import {UserState} from '../../../core/store/user.reducers';
+import {AppState} from '../../../core/store/state';
 
 @Component({
   selector: 'cb-chat',
@@ -17,7 +17,7 @@ export class ChatComponent implements OnInit {
   contactedUser: any;
   private userState$: Observable<User[]>;
 
-  constructor(private store: Store<UserState>) {
+  constructor(private store: Store<AppState>) {
   }
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class ChatComponent implements OnInit {
     }
   }
 
-  trackById(user: User) {
+  extractId(user: User) {
     return user.id;
   }
 }

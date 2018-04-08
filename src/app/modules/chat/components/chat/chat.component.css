@@ -55,8 +55,10 @@
 }
 
 .user-name-container {
-  font-size: 14px;
   flex: 4;
+  margin-left: 1px;
+  font-size: 12px;
+  text-align: center;
 }
 
 .user-online-indicator {

@@ -2,15 +2,15 @@ import {Injectable} from '@angular/core';
 import {User} from '../types/user';
 import {interval} from 'rxjs/observable/interval';
 import {Store} from '@ngrx/store';
-import {AddUserAction, UpdateUserAction} from '../../core/store/user.actions';
-import {UserState} from '../../core/store/user.reducers';
+import {AddUserAction, UpdateUserAction} from '../../core/store/user/user.actions';
+import {AppState} from '../../core/store/state';
 
 @Injectable()
 export class UserService {
   private usersToAdd: User[];
   private users: User[];
 
-  constructor(private store: Store<UserState>) {
+  constructor(private store: Store<AppState>) {
     this.init();
   }
 
@@ -28,8 +28,8 @@ export class UserService {
     this.dispatchNewUser({id: 4, name: 'Nir Amsellem', avatar: 'assets/images/avatars/na.jpg', online: true});
     this.dispatchNewUser({id: 5, name: 'Michael Balber', avatar: 'assets/images/avatars/mb.jpg', online: true});
 
-    this.store.select('users').subscribe((userState: any) => {
-      this.users = userState.users;
+    this.store.select('users').subscribe((users: User[]) => {
+      this.users = users;
     });
   }
 

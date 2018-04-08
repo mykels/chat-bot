@@ -6,7 +6,8 @@ import {ChatModule} from '../chat/chat.module';
 import {CORE_COMPONENTS} from './components';
 import {UserModule} from '../user/user.module';
 import {StoreModule} from '@ngrx/store';
-import {userReducer} from './store/user.reducers';
+import {userReducer} from './store/user/user.reducers';
+import {initialState} from './store/state';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import {userReducer} from './store/user.reducers';
     MessagesModule,
     ChatModule,
     UserModule,
-    StoreModule.forRoot({users: userReducer})
+    StoreModule.forRoot({users: userReducer}, {initialState})
   ],
   declarations: [
     ...CORE_COMPONENTS

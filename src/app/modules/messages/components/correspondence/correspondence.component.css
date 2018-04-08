@@ -71,18 +71,19 @@
 .new-message-container {
   display: flex;
   flex-direction: row;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
   flex: 1;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  min-height: 40px;
 }
 
 .new-message-container > textarea {
   flex: 10;
   padding: 10px;
   border: none;
-  overflow: auto;
   outline: none;
   box-shadow: none;
   resize: none;
+  overflow: hidden;
   font-size: 14px;
 }
 
