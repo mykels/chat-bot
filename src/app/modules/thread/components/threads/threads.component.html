@@ -1,0 +1,12 @@
+<div class="threads-container">
+  <div class="threads-header">
+    <div class="threads-title">
+      Messenger
+    </div>
+  </div>
+  <div class="thread-list-container">
+    <cb-thread *ngFor="let thread of (threads$ | async)"
+               [thread]="thread">
+    </cb-thread>
+  </div>
+</div>

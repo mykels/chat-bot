@@ -1,0 +1,18 @@
+<div class="thread-container"
+     (click)="onClick()"
+     [@listAppear]>
+  <div class="sender-avatar-container">
+    <img src="assets/images/avatars/dy.jpg"/>
+  </div>
+  <div class="thread-content-container">
+    <div class="sender-name-container">
+      {{thread.sender}}
+    </div>
+    <div class="summary-container">
+      {{thread.summary}}
+    </div>
+  </div>
+  <div class="thread-date-container">
+    {{thread.date | date:"dd/MM/yy HH:mm" }}
+  </div>
+</div>

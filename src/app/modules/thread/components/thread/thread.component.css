@@ -1,4 +1,4 @@
-.message-container {
+.thread-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -6,7 +6,7 @@
   box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
-.message-container:hover {
+.thread-container:hover {
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 0 2px #1e2a4c;
@@ -24,7 +24,7 @@
   justify-content: center;
 }
 
-.message-content-container {
+.thread-content-container {
   display: flex;
   flex-direction: column;
   flex: 4;
@@ -41,7 +41,7 @@
   font-size: 14px;
 }
 
-.message-date-container {
+.thread-date-container {
   flex: 1;
   text-align: center;
   color: rgba(0, 0, 0, .40);
