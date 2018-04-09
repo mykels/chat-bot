@@ -3,8 +3,7 @@ import {Observable} from 'rxjs/Observable';
 import {Thread} from '../../types/thread';
 import {AppState} from '../../../core/store/types/app-state';
 import {Store} from '@ngrx/store';
-import {User} from '../../../user/types/user';
-import {reduce} from 'rxjs/operators';
+import {UserService} from '../../../user/services/user.service';
 
 @Component({
   selector: 'cb-threads',
@@ -14,23 +13,23 @@ import {reduce} from 'rxjs/operators';
 })
 export class ThreadsComponent implements OnInit {
   threads$: Observable<Thread[]>;
-  userMap$: Observable<Map<string, User>>;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private userService: UserService) {
   }
 
   ngOnInit(): void {
     this.initThreads();
-    this.initUsers();
   }
 
   initThreads() {
     this.threads$ = this.store.select('threads');
   }
 
-  initUsers() {
-    // TODO: need to map users from threads
-    this.userMap$ = this.store.select('users')
-      .let(reduce((userMap, user) => userMap, new Map<string, User>()));
+  extractId(thread: Thread) {
+    return thread.id;
+  }
+
+  private getUserById(userId: number) {
+    return this.userService.getById(userId);
   }
 }

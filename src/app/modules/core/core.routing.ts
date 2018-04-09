@@ -8,12 +8,12 @@ const routes: Routes = [
     component: MasterComponent,
     children: [
       {
-        path: 'thread',
+        path: 'threads',
         loadChildren: 'app/modules/thread/thread.module#ThreadModule',
       },
       {
         path: '',
-        redirectTo: 'thread',
+        redirectTo: 'threads',
         pathMatch: 'full'
       }
     ]

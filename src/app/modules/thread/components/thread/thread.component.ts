@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {THREAD_ANIMATIONS} from './thread.animation';
 import {Thread} from '../../types/thread';
+import {User} from '../../../user/types/user';
 
 @Component({
   selector: 'cb-thread',
@@ -12,6 +13,7 @@ import {Thread} from '../../types/thread';
 })
 export class ThreadComponent implements OnInit {
   @Input() thread: Thread;
+  @Input() senderUser: User;
 
   constructor(private router: Router) {
 

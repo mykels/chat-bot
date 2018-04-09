@@ -1,5 +1,4 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
 import {User} from '../../../user/types/user';
 import {CONVERSATION_ANIMATIONS} from './conversation.animation';
 
@@ -21,15 +20,12 @@ export class ConversationComponent implements OnInit {
 
   @Input() user: User;
 
-  constructor(private route: ActivatedRoute) {
+  constructor() {
     this.message = {};
     this.message.date = new Date().getTime();
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.messageId = +params['id'];
-    });
   }
 
   onKeyPress(keyboardEvent: KeyboardEvent) {

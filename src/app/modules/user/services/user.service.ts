@@ -64,5 +64,10 @@ export class UserService {
   dispatchNewUser(user: User) {
     this.store.dispatch(new AddUserAction(user));
   }
+
+  getById(userId: number): User {
+    const [user] = this.users.filter(scannedUser => scannedUser.id === userId);
+    return user;
+  }
 }
 

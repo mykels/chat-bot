@@ -5,8 +5,9 @@
     </div>
   </div>
   <div class="thread-list-container">
-    <cb-thread *ngFor="let thread of (threads$ | async)"
-               [thread]="thread">
+    <cb-thread *ngFor="let thread of (threads$ | async) trackBy:extractId"
+               [thread]="thread"
+               [senderUser]="getUserById(thread.sender)">
     </cb-thread>
   </div>
 </div>

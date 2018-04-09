@@ -2,11 +2,11 @@
      (click)="onClick()"
      [@listAppear]>
   <div class="sender-avatar-container">
-    <img src="assets/images/avatars/dy.jpg"/>
+    <img [src]="senderUser.avatar"/>
   </div>
   <div class="thread-content-container">
     <div class="sender-name-container">
-      {{thread.sender}}
+      {{senderUser.name}}
     </div>
     <div class="summary-container">
       {{thread.summary}}
