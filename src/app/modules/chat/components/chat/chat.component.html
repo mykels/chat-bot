@@ -4,7 +4,7 @@
   </div>
   <div class="chat-panel">
     <div class="user-chat" *ngIf="contactedUser">
-      <cb-correspondence [user]="contactedUser"></cb-correspondence>
+      <cb-conversation [user]="contactedUser"></cb-conversation>
     </div>
     <div class="user-list">
       <div *ngFor="let user of (userState$ | async) | sortByOnline trackBy:extractId"

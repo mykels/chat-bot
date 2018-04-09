@@ -1,5 +1,5 @@
-<div class="correspondence-container">
-  <div class="correspondence-header">
+<div class="conversation-container">
+  <div class="conversation-header">
     <div class="sender-avatar-container">
       <img [src]="user?.avatar"/>
     </div>
@@ -7,7 +7,7 @@
       {{user?.name}}
     </div>
   </div>
-  <div class="correspondence-history-container">
+  <div class="conversation-history-container">
     <div *ngFor="let historyItem of messageHistory; let i=index"
          [@messageAppear]
          class="history-item" [ngClass]="{'f-row':i % 2 === 0, 'fr-row': i % 2 !== 0}">

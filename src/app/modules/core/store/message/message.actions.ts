@@ -1,5 +1,5 @@
 import {Action} from '@ngrx/store';
-import {Message} from '../../../messages/types/message';
+import {Message} from '../../../thread/types/message';
 
 export const ADD_MESSAGE = 'ADD_MESSAGE';
 

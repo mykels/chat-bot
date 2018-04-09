@@ -1,11 +1,11 @@
-.correspondence-container {
+.conversation-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
 }
 
-.correspondence-header {
+.conversation-header {
   display: flex;
   flex-direction: row;
   flex: 1;
@@ -30,7 +30,7 @@
   margin: 10px;
 }
 
-.correspondence-history-container {
+.conversation-history-container {
   flex: 16;
 }
 

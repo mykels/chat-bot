@@ -14,6 +14,6 @@ export const MESSAGE_APPEAR_ANIMATION = trigger('messageAppear', [
   ])
 ]);
 
-export const CORRESPONDENCE_ANIMATIONS = [
+export const CONVERSATION_ANIMATIONS = [
   MESSAGE_APPEAR_ANIMATION
 ];

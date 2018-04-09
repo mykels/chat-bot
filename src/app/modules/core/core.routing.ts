@@ -8,12 +8,12 @@ const routes: Routes = [
     component: MasterComponent,
     children: [
       {
-        path: 'messages',
-        loadChildren: 'app/modules/messages/messages.module#MessagesModule',
+        path: 'thread',
+        loadChildren: 'app/modules/thread/thread.module#ThreadModule',
       },
       {
         path: '',
-        redirectTo: 'messages',
+        redirectTo: 'thread',
         pathMatch: 'full'
       }
     ]

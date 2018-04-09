@@ -1,15 +1,15 @@
 import {NgModule} from '@angular/core';
 import {CHAT_COMPONENTS} from './components';
 import {CommonModule} from '@angular/common';
-import {MessagesModule} from '../messages/messages.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CHAT_PIPES} from './pipes';
+import {ConversationModule} from '../conversation/conversation.module';
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserAnimationsModule,
-    MessagesModule
+    ConversationModule
   ],
   declarations: [
     ...CHAT_COMPONENTS,

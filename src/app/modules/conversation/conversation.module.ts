@@ -1,22 +1,20 @@
 import {NgModule} from '@angular/core';
-import {MESSAGES_COMPONENTS} from './components';
-import {MessagesModuleRouting} from './messages.routing';
 import {CommonModule} from '@angular/common';
+import {CONVERSATION_COMPONENTS} from './components';
 import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
-    MessagesModuleRouting
+    FormsModule
   ],
   declarations: [
-    ...MESSAGES_COMPONENTS
+    ...CONVERSATION_COMPONENTS,
   ],
   providers: [],
   exports: [
-    ...MESSAGES_COMPONENTS
+    ...CONVERSATION_COMPONENTS,
   ]
 })
-export class MessagesModule {
+export class ConversationModule {
 }

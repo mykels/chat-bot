@@ -3,19 +3,17 @@ import {Action} from '@ngrx/store';
 export abstract class AbstractReducer<T, A extends Action> {
   private actorMap: Map<string, any>;
 
-  protected constructor() {
+  constructor() {
     this.actorMap = new Map<string, any>();
   }
 
-  abstract reduce(state: T, action: A): void;
+  reduce(state: T, action: A): T {
+    const actor = this.actorMap.get(action.type);
+    return actor ? actor(state, action) : state;
+  }
 
-  register(type: string, actor: any): AbstractReducer<T, A> {
+  protected register(type: string, actor: any): AbstractReducer<T, A> {
     this.actorMap.set(type, actor);
     return this;
   }
-
-  default() {
-
-  }
-
 }

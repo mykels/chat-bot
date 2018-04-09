@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from './modules/user/services/user.service';
+import {ThreadService} from './modules/thread/services/thread.service';
 
 @Component({
   selector: 'cb-root',
@@ -7,7 +8,8 @@ import {UserService} from './modules/user/services/user.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private threadService: ThreadService) {
 
   }
 

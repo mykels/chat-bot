@@ -1,18 +1,19 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {CORRESPONDENCE_ANIMATIONS} from './correspondence.animation';
 import {User} from '../../../user/types/user';
+import {CONVERSATION_ANIMATIONS} from './conversation.animation';
 
 export const ENTER_KEY_CODE = 13;
 
+// TODO: better be called conversation and conversant
 @Component({
-  selector: 'cb-correspondence',
-  templateUrl: './correspondence.component.html',
-  styleUrls: ['./correspondence.component.css'],
-  animations: CORRESPONDENCE_ANIMATIONS,
+  selector: 'cb-conversation',
+  templateUrl: './conversation.component.html',
+  styleUrls: ['./conversation.component.css'],
+  animations: CONVERSATION_ANIMATIONS,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CorrespondenceComponent implements OnInit {
+export class ConversationComponent implements OnInit {
   message: any;
   messageId: number;
   messageContent = '';

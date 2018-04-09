@@ -483,7 +483,7 @@ babel-generator@^6.18.0:
   version "6.26.1"
   resolved "https://registry.yarnpkg.com/babel-generator/-/babel-generator-6.26.1.tgz#1844408d3b8f0d35a404ea7ac180f087a601bd90"
   dependencies:
-    babel-messages "^6.23.0"
+    babel-threads "^6.23.0"
     babel-runtime "^6.26.0"
     babel-types "^6.26.0"
     detect-indent "^4.0.0"
@@ -494,7 +494,7 @@ babel-generator@^6.18.0:
 
 babel-messages@^6.23.0:
   version "6.23.0"
-  resolved "https://registry.yarnpkg.com/babel-messages/-/babel-messages-6.23.0.tgz#f3cdf4703858035b2a2951c6ec5edf6c62f2630e"
+  resolved "https://registry.yarnpkg.com/babel-threads/-/babel-threads-6.23.0.tgz#f3cdf4703858035b2a2951c6ec5edf6c62f2630e"
   dependencies:
     babel-runtime "^6.22.0"
 
@@ -520,7 +520,7 @@ babel-traverse@^6.18.0, babel-traverse@^6.26.0:
   resolved "https://registry.yarnpkg.com/babel-traverse/-/babel-traverse-6.26.0.tgz#46a9cbd7edcc62c8e5c064e2d2d8d0f4035766ee"
   dependencies:
     babel-code-frame "^6.26.0"
-    babel-messages "^6.23.0"
+    babel-threads "^6.23.0"
     babel-runtime "^6.26.0"
     babel-types "^6.26.0"
     babylon "^6.18.0"

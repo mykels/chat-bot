@@ -1,21 +1,22 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {CoreRoutingModule} from './core.routing';
-import {MessagesModule} from '../messages/messages.module';
 import {ChatModule} from '../chat/chat.module';
 import {CORE_COMPONENTS} from './components';
 import {UserModule} from '../user/user.module';
 import {StoreModule} from '@ngrx/store';
-import {userReducer} from './store/user/user.reducers';
-import {initialState} from './store/state';
+import {initialState, reducerMap} from './store/store';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ThreadModule} from '../thread/thread.module';
 
 @NgModule({
   imports: [
     CoreRoutingModule,
-    MessagesModule,
+    ThreadModule,
     ChatModule,
     UserModule,
-    StoreModule.forRoot({users: userReducer}, {initialState})
+    BrowserAnimationsModule,
+    StoreModule.forRoot(reducerMap, {initialState})
   ],
   declarations: [
     ...CORE_COMPONENTS
@@ -23,7 +24,7 @@ import {initialState} from './store/state';
   providers: [],
   exports: [
     RouterModule,
-    MessagesModule,
+    ThreadModule,
     ChatModule,
     UserModule,
     ...CORE_COMPONENTS

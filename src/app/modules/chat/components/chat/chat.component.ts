@@ -3,7 +3,7 @@ import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
 import {CHAT_ANIMATIONS} from './chat.animations';
 import {User} from '../../../user/types/user';
-import {AppState} from '../../../core/store/state';
+import {AppState} from '../../../core/store/types/app-state';
 
 @Component({
   selector: 'cb-chat',

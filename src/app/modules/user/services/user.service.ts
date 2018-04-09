@@ -3,7 +3,7 @@ import {User} from '../types/user';
 import {interval} from 'rxjs/observable/interval';
 import {Store} from '@ngrx/store';
 import {AddUserAction, UpdateUserAction} from '../../core/store/user/user.actions';
-import {AppState} from '../../core/store/state';
+import {AppState} from '../../core/store/types/app-state';
 
 @Injectable()
 export class UserService {
@@ -43,9 +43,11 @@ export class UserService {
   randomizeOnlineIndicator() {
     interval(5000).subscribe(() => {
       const randomUser: User = this.users[Math.floor((Math.random() * 100) % (this.users.length - 1))];
-      randomUser.online = !randomUser.online;
 
-      this.store.dispatch(new UpdateUserAction(randomUser));
+      if (randomUser) {
+        randomUser.online = !randomUser.online;
+        this.store.dispatch(new UpdateUserAction(randomUser));
+      }
     });
   }
 
