@@ -1,6 +1,1 @@
-<!--<cb-conversation [user]="getUserById(thread.sender)"></cb-conversation>-->
-
-<div>
-  thread.sender: {{thread.sender}}
-  getUserById(thread.sender): {{(thread.sender | extractUser).id}}
-</div>
+<cb-conversation [user]="thread.sender | extractUser"></cb-conversation>
