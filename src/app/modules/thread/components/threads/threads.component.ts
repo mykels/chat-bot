@@ -13,6 +13,7 @@ import {UserService} from '../../../user/services/user.service';
 })
 export class ThreadsComponent implements OnInit {
   threads$: Observable<Thread[]>;
+  selectedThread: Thread;
 
   constructor(private store: Store<AppState>, private userService: UserService) {
   }
@@ -27,6 +28,10 @@ export class ThreadsComponent implements OnInit {
 
   extractId(thread: Thread) {
     return thread.id;
+  }
+
+  selectThread(thread: Thread) {
+    this.selectedThread = thread;
   }
 
   private getUserById(userId: number) {

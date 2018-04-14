@@ -5,18 +5,7 @@ import {MasterComponent} from '../master/master.component';
 const routes: Routes = [
   {
     path: '',
-    component: MasterComponent,
-    children: [
-      {
-        path: 'threads',
-        loadChildren: 'app/modules/thread/thread.module#ThreadModule',
-      },
-      {
-        path: '',
-        redirectTo: 'threads',
-        pathMatch: 'full'
-      }
-    ]
+    component: MasterComponent
   }
 ];
 

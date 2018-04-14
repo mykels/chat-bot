@@ -1,11 +1,17 @@
 <div class="threads-container">
-  <div class="threads-header">
-    <h4>Messenger</h4>
+  <div class="thread-selector-container">
+    <div class="threads-header">
+      <h4>Messenger</h4>
+    </div>
+    <div class="thread-list-container">
+      <cb-thread *ngFor="let thread of (threads$ | async) trackBy:extractId"
+                 [thread]="thread"
+                 [senderUser]="getUserById(thread.sender)"
+                 (onSelect)="selectThread($event)">
+      </cb-thread>
+    </div>
   </div>
-  <div class="thread-list-container">
-    <cb-thread *ngFor="let thread of (threads$ | async) trackBy:extractId"
-               [thread]="thread"
-               [senderUser]="getUserById(thread.sender)">
-    </cb-thread>
+  <div class="thread-details-container" *ngIf="selectedThread">
+    <cb-thread-details [thread]="selectedThread"></cb-thread-details>
   </div>
 </div>

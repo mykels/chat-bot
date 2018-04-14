@@ -3,8 +3,9 @@
     <h4>Chat</h4>
   </div>
   <div class="chat-panel">
-    <div class="user-chat" *ngIf="contactedUser">
-      <cb-conversation [user]="contactedUser"></cb-conversation>
+    <div class="user-chat" *ngIf="receiver">
+      <cb-conversation [receiver]="receiver">
+      </cb-conversation>
     </div>
     <div class="user-list">
       <div *ngFor="let user of (userState$ | async) | sortByOnline trackBy:extractId"

@@ -1,0 +1,10 @@
+<div class="new-message-container">
+    <textarea placeholder="Type a message..."
+              [(ngModel)]="messageContent"
+              (keypress)="onKeyPress($event)">
+    </textarea>
+  <button *ngIf="messageContent.length > 0"
+          (click)="sendMessage()">
+    Send
+  </button>
+</div>

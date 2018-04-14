@@ -1,1 +1,3 @@
-<cb-conversation [user]="thread.sender | extractUser"></cb-conversation>
+<cb-conversation [receiver]="thread.sender | extractUser"
+                 [messages]="thread.messages">
+</cb-conversation>

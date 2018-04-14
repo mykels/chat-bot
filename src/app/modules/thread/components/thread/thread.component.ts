@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Router} from '@angular/router';
 import {THREAD_ANIMATIONS} from './thread.animation';
 import {Thread} from '../../types/thread';
@@ -14,6 +14,7 @@ import {User} from '../../../user/types/user';
 export class ThreadComponent implements OnInit {
   @Input() thread: Thread;
   @Input() senderUser: User;
+  @Output() onSelect = new EventEmitter<Thread>();
 
   constructor(private router: Router) {
 
@@ -23,6 +24,6 @@ export class ThreadComponent implements OnInit {
   }
 
   onClick(): void {
-    this.router.navigate(['/threads', this.thread.id]);
+    this.onSelect.emit(this.thread);
   }
 }

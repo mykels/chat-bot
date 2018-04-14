@@ -1,23 +1,25 @@
 .threads-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 100%;
+}
+
+.thread-selector-container {
+  display: flex;
+  flex-direction: column;
   margin-left: 2px;
+  flex: 1;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .threads-header {
-  flex-basis: auto;
-  flex-grow: 1;
+  flex: 1;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   text-align: center;
-  min-height: 65px;
-  max-height: 65px;
 }
 
 .threads-title {
-  flex-basis: auto;
-  flex-grow: 1;
+  flex: 1;
   justify-content: center;
 }
 
@@ -25,5 +27,10 @@
   scroll-behavior: smooth;
   overflow-y: auto;
   overflow-x: hidden;
-  flex: 10;
+  flex: 19;
+}
+
+.thread-details-container {
+  flex: 1;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }

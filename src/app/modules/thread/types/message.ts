@@ -1,7 +1,7 @@
 export interface Message {
-  id: string;
-  sender: string;
-  receiver: string;
+  id: number;
+  sender?: number;
+  receiver?: number;
   content: string;
   date: Date;
 }

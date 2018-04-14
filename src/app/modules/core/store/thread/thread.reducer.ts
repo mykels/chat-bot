@@ -1,12 +1,14 @@
 import {AbstractReducer} from '../util/abstract-reducer';
 import {Thread} from '../../../thread/types/thread';
-import {ADD_THREAD, ThreadActions, UPDATE_THREAD} from './thread.actions';
+import {ADD_THREAD, ThreadActions} from './thread.actions';
+import {ADD_MESSAGE} from '../message/message.actions';
+import {Message} from '../../../thread/types/message';
 
 export class ThreadReducer extends AbstractReducer<Thread[], ThreadActions> {
   constructor() {
     super();
-    this.register(ADD_THREAD, this.addThread);
-    this.register(UPDATE_THREAD, this.updateThread);
+    this.register(ADD_THREAD, (threads: Thread[], action: ThreadActions) => this.addThread(threads, action));
+    this.register(ADD_MESSAGE, (threads: Thread[], action: ThreadActions) => this.addMessageToThread(threads, action));
   }
 
   addThread(threads: Thread[], action: ThreadActions): Thread[] {
@@ -15,9 +17,29 @@ export class ThreadReducer extends AbstractReducer<Thread[], ThreadActions> {
     return [...threads, newThread];
   }
 
-  updateThread(threads: Thread[], action: ThreadActions): Thread[] {
-    const updatedThread: Thread = action.payload;
-    console.log(`handling dispatched action [${UPDATE_THREAD}] with thread [${updatedThread.id}]`);
-    return [...threads.filter(thread => thread.id !== updatedThread.id), {...updatedThread}];
+  addMessageToThread(threads: Thread[], action: any): Thread[] {
+    const message: Message = action.payload;
+    const [matchingThread] = threads.filter(thread =>
+      ((thread.sender === message.sender)
+        && (thread.receiver === message.receiver)));
+
+    if (matchingThread) {
+      matchingThread.messages = [...matchingThread.messages, message.id];
+      return [...threads.filter(thread => thread.id !== matchingThread.id)]
+        .concat({...matchingThread});
+    }
+
+    return [...threads].concat(this.constructThreadFromMessage(message));
+  }
+
+  private constructThreadFromMessage(message: Message): Thread {
+    return {
+      id: Math.floor(Math.random() * 100000),
+      sender: message.sender,
+      receiver: message.receiver,
+      summary: message.content,
+      date: message.date,
+      messages: [message.id]
+    };
   }
 }

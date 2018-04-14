@@ -1,32 +1,18 @@
 <div class="conversation-container">
   <div class="conversation-header">
     <div class="sender-avatar-container">
-      <img [src]="user?.avatar"/>
+      <img [src]="receiver?.avatar"/>
     </div>
     <div class="sender-name-container">
-      {{user?.name}}
+      {{receiver?.name}}
     </div>
   </div>
-  <div class="conversation-history-container">
-    <div *ngFor="let historyItem of messageHistory; let i=index"
-         [@messageAppear]
-         class="history-item" [ngClass]="{'f-row':i % 2 === 0, 'fr-row': i % 2 !== 0}">
-      <div class="history-item-content" [ngClass]="{'my-message':i % 2 === 0,'foreign-message': i % 2 !== 0}">
-        {{historyItem.content}}
-        <div class="history-item-date">
-          {{historyItem.date | date: 'hh:mm'}}
-        </div>
-      </div>
-    </div>
+  <div class="conversation-messages-container">
+    <cb-conversation-messages
+      [messages]="messages">
+    </cb-conversation-messages>
   </div>
-  <div class="new-message-container">
-    <textarea placeholder="Type a message..."
-              [(ngModel)]="messageContent"
-              (keypress)="onKeyPress($event)">
-    </textarea>
-    <button *ngIf="messageContent.length > 0"
-            (click)="onSend()">
-      Send
-    </button>
-  </div>
+  <cb-conversation-typing-bar
+    (onSend)="onSend($event)">
+  </cb-conversation-typing-bar>
 </div>

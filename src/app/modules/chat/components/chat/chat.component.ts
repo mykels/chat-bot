@@ -14,8 +14,8 @@ import {AppState} from '../../../core/store/types/app-state';
 })
 
 export class ChatComponent implements OnInit {
-  contactedUser: any;
-  private userState$: Observable<User[]>;
+  users$: Observable<User[]>;
+  receiver: User;
 
   constructor(private store: Store<AppState>) {
   }
@@ -25,12 +25,12 @@ export class ChatComponent implements OnInit {
   }
 
   initUsers() {
-    this.userState$ = this.store.select('users');
+    this.users$ = this.store.select('users');
   }
 
   onContactClick(user: User) {
     if (user.online) {
-      this.contactedUser = user;
+      this.receiver = user;
     }
   }
 
