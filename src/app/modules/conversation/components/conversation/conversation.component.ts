@@ -21,7 +21,6 @@ export class ConversationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   onSend(message: Message) {
     message.receiver = this.receiver.id;
     message.sender = this.receiver.id; // TODO: get real sender

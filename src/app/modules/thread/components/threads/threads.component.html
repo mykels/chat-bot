@@ -6,12 +6,14 @@
     <div class="thread-list-container">
       <cb-thread *ngFor="let thread of (threads$ | async) trackBy:extractId"
                  [thread]="thread"
-                 [senderUser]="getUserById(thread.sender)"
+                 [senderUser]="thread.sender | extractUser"
                  (onSelect)="selectThread($event)">
       </cb-thread>
     </div>
   </div>
   <div class="thread-details-container" *ngIf="selectedThread">
-    <cb-thread-details [thread]="selectedThread"></cb-thread-details>
+    <cb-thread-details [thread]="selectedThread"
+                       [messages]="messages$ | async">
+    </cb-thread-details>
   </div>
 </div>

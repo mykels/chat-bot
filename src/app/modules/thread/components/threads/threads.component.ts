@@ -3,7 +3,10 @@ import {Observable} from 'rxjs/Observable';
 import {Thread} from '../../types/thread';
 import {AppState} from '../../../core/store/types/app-state';
 import {Store} from '@ngrx/store';
-import {UserService} from '../../../user/services/user.service';
+import {Message} from '../../types/message';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'cb-threads',
@@ -13,9 +16,10 @@ import {UserService} from '../../../user/services/user.service';
 })
 export class ThreadsComponent implements OnInit {
   threads$: Observable<Thread[]>;
+  messages$: Observable<Message[]>;
   selectedThread: Thread;
 
-  constructor(private store: Store<AppState>, private userService: UserService) {
+  constructor(private store: Store<AppState>) {
   }
 
   ngOnInit(): void {
@@ -32,9 +36,18 @@ export class ThreadsComponent implements OnInit {
 
   selectThread(thread: Thread) {
     this.selectedThread = thread;
+    this.initMessages();
   }
 
-  private getUserById(userId: number) {
-    return this.userService.getById(userId);
+  initMessages() {
+    this.messages$ = this.store.select('messages')
+      .map(messages => messages.filter(message => {
+        // this is no good, combine latest should be applied here
+        this.threads$.map(threads => threads
+          .filter(thread => thread.id === this.selectedThread.id))
+          .subscribe(selectedThread => {
+            return this.selectedThread.messages.indexOf(message.id) !== -1;
+          });
+      }));
   }
 }

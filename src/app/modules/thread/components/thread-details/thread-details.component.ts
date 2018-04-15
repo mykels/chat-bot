@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Thread} from '../../types/thread';
-
-// TODO: make thread-details part of threads components instead of an outlined one
+import {Message} from '../../types/message';
 
 @Component({
   selector: 'cb-thread-details',
@@ -11,6 +10,7 @@ import {Thread} from '../../types/thread';
 })
 export class ThreadDetailsComponent implements OnInit {
   @Input() thread: Thread;
+  @Input() messages: Message[];
 
   ngOnInit(): void {
   }

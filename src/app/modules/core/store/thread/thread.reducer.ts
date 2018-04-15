@@ -20,8 +20,7 @@ export class ThreadReducer extends AbstractReducer<Thread[], ThreadActions> {
   addMessageToThread(threads: Thread[], action: any): Thread[] {
     const message: Message = action.payload;
     const [matchingThread] = threads.filter(thread =>
-      ((thread.sender === message.sender)
-        && (thread.receiver === message.receiver)));
+      thread.sender === message.sender);
 
     if (matchingThread) {
       matchingThread.messages = [...matchingThread.messages, message.id];
