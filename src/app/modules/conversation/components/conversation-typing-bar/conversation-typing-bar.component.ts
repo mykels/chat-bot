@@ -19,6 +19,7 @@ export class ConversationTypingBarComponent implements OnInit {
 
   sendMessage() {
     this.onSend.emit(this.constructMessage());
+    this.messageContent = '';
   }
 
   onKeyPress(keyboardEvent: KeyboardEvent) {

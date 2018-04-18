@@ -24,10 +24,7 @@ export class ThreadsComponent implements OnInit {
 
   ngOnInit(): void {
     this.initThreads();
-  }
-
-  initThreads() {
-    this.threads$ = this.store.select('threads');
+    this.initMessages();
   }
 
   extractId(thread: Thread) {
@@ -35,19 +32,17 @@ export class ThreadsComponent implements OnInit {
   }
 
   selectThread(thread: Thread) {
-    this.selectedThread = thread;
-    this.initMessages();
+    this.threads$.subscribe(scannedThreads => {
+      const [selectedThread] = scannedThreads.filter(scannedThread => scannedThread.id === thread.id);
+      this.selectedThread = selectedThread;
+    });
   }
 
-  initMessages() {
-    this.messages$ = this.store.select('messages')
-      .map(messages => messages.filter(message => {
-        // this is no good, combine latest should be applied here
-        this.threads$.map(threads => threads
-          .filter(thread => thread.id === this.selectedThread.id))
-          .subscribe(selectedThread => {
-            return this.selectedThread.messages.indexOf(message.id) !== -1;
-          });
-      }));
+  private initThreads() {
+    this.threads$ = this.store.select('threads');
+  }
+
+  private initMessages() {
+    this.messages$ = this.store.select('messages');
   }
 }

@@ -4,6 +4,7 @@ import {CommonModule} from '@angular/common';
 import {THREAD_SERVICES} from './services';
 import {ConversationModule} from '../conversation/conversation.module';
 import {UserModule} from '../user/user.module';
+import {THREAD_PIPES} from './pipes';
 
 @NgModule({
   imports: [
@@ -12,13 +13,15 @@ import {UserModule} from '../user/user.module';
     UserModule
   ],
   declarations: [
-    ...THREAD_COMPONENTS
+    ...THREAD_COMPONENTS,
+    ...THREAD_PIPES
   ],
   providers: [
     ...THREAD_SERVICES
   ],
   exports: [
-    ...THREAD_COMPONENTS
+    ...THREAD_COMPONENTS,
+    ...THREAD_PIPES
   ]
 })
 export class ThreadModule {

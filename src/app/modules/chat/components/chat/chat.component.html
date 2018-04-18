@@ -7,21 +7,10 @@
       <cb-conversation [receiver]="receiver">
       </cb-conversation>
     </div>
-    <div class="user-list">
-      <div *ngFor="let user of (userState$ | async) | sortByOnline trackBy:extractId"
-           class="user-container" [@listAppear]
-           (click)="onContactClick(user)"
-           [attr.disabled]="!user.online">
-        <div class="user-avatar-container">
-          <img [src]="user.avatar"/>
-        </div>
-        <div class="user-name-container">
-          {{user.name}}
-        </div>
-        <div class="user-online-indicator"
-             [ngClass]="{'online-indicator':user.online,'offline-indicator':!user.online}">
-        </div>
-      </div>
+    <div class="users-container">
+      <cb-users [users]="users$ | async"
+                (onSelect)="onSelect($event)">
+      </cb-users>
     </div>
   </div>
 </div>

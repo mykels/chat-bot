@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {User} from '../../user/types/user';
+import {User} from '../types/user';
 
 @Pipe({name: 'sortByOnline'})
 export class SortByOnline implements PipeTransform {

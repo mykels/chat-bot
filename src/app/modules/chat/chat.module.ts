@@ -2,23 +2,22 @@ import {NgModule} from '@angular/core';
 import {CHAT_COMPONENTS} from './components';
 import {CommonModule} from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CHAT_PIPES} from './pipes';
 import {ConversationModule} from '../conversation/conversation.module';
+import {UserModule} from '../user/user.module';
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserAnimationsModule,
-    ConversationModule
+    ConversationModule,
+    UserModule
   ],
   declarations: [
-    ...CHAT_COMPONENTS,
-    ...CHAT_PIPES,
+    ...CHAT_COMPONENTS
   ],
   providers: [],
   exports: [
-    ...CHAT_COMPONENTS,
-    ...CHAT_PIPES
+    ...CHAT_COMPONENTS
   ]
 })
 export class ChatModule {

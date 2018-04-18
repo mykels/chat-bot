@@ -28,13 +28,9 @@ export class ChatComponent implements OnInit {
     this.users$ = this.store.select('users');
   }
 
-  onContactClick(user: User) {
+  onSelect(user: User) {
     if (user.online) {
       this.receiver = user;
     }
-  }
-
-  extractId(user: User) {
-    return user.id;
   }
 }

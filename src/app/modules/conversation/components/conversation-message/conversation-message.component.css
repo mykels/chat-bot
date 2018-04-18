@@ -1,9 +1,10 @@
 .message {
-  align-items: center;
-  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
 }
 
 .message-content {
+  flex: 2;
   margin: 10px;
   word-wrap: break-word;
   color: #ffffff;
@@ -16,6 +17,7 @@
 }
 
 .message-date {
+  flex: 1;
   color: rgba(0, 0, 0, .40);
   font-size: 12.6px;
   font-weight: 300;

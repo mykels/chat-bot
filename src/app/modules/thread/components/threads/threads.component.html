@@ -13,7 +13,7 @@
   </div>
   <div class="thread-details-container" *ngIf="selectedThread">
     <cb-thread-details [thread]="selectedThread"
-                       [messages]="messages$ | async">
+                       [messages]="(messages$ | async) | filterByThread:selectedThread">
     </cb-thread-details>
   </div>
 </div>
