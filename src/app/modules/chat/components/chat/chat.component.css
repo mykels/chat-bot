@@ -29,6 +29,7 @@
 
 .users-container {
   flex: 2;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
   overflow-x: hidden;
   overflow-y: auto;
 }

@@ -1,5 +1,7 @@
-<div class="message">
-  <div class="message-content self-message">
+<div class="message"
+     [@messageAppear]
+     [ngClass]="{'self-message':message.self,'foreign-message':!message.self}">
+  <div class="message-content">
     {{message.content}}
     <div class="message-date">
       {{message.date | date: 'hh:mm'}}

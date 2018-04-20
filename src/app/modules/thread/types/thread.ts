@@ -1,8 +1,7 @@
 export class Thread {
-  id: number;
-  sender: number;
-  receiver: number;
+  id: string;
+  user: string;
   summary: string;
   date: Date;
-  messages: number[];
+  messages: string[];
 }

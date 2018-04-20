@@ -1,12 +1,12 @@
 <div class="thread-container"
      (click)="onClick()"
      [@listAppear]>
-  <div class="sender-avatar-container">
-    <img [src]="senderUser.avatar"/>
+  <div class="subject-avatar-container">
+    <img [src]="user.avatar"/>
   </div>
   <div class="thread-content-container">
-    <div class="sender-name-container">
-      {{senderUser.name}}
+    <div class="subject-name-container">
+      {{user.name}}
     </div>
     <div class="summary-container">
       {{thread.summary}}

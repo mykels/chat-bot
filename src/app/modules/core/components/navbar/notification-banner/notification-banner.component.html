@@ -1,0 +1,7 @@
+<cb-navbar-button>
+  <i class="fa fa-comments"></i>
+  <span class="notification-badge" *ngIf="notificationCount > 0"
+        [@valueChange]="notificationCount">
+    {{notificationCount}}
+  </span>
+</cb-navbar-button>

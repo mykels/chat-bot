@@ -1,0 +1,14 @@
+.navbar-button {
+  color: white;
+  display: inline-block;
+  position: relative;
+  padding: 2px 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 2em;
+}
+
+.navbar-button:hover {
+  color: #d4d4d4;
+  transition: linear .2s;
+}

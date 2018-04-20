@@ -8,6 +8,8 @@ import {StoreModule} from '@ngrx/store';
 import {initialState, reducerMap} from './store/store';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ThreadModule} from '../thread/thread.module';
+import {STORE_INJECTABLES} from './store';
+import {BotModule} from '../bot/bot.module';
 
 @NgModule({
   imports: [
@@ -15,13 +17,16 @@ import {ThreadModule} from '../thread/thread.module';
     ThreadModule,
     ChatModule,
     UserModule,
+    BotModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(reducerMap, {initialState})
   ],
   declarations: [
     ...CORE_COMPONENTS
   ],
-  providers: [],
+  providers: [
+    ...STORE_INJECTABLES
+  ],
   exports: [
     RouterModule,
     ThreadModule,

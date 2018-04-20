@@ -6,7 +6,7 @@ import {ThreadReducer} from './thread/thread.reducer';
 export const initialState: AppState = {
   users: [],
   messages: [],
-  threads: []
+  threads: [],
 };
 
 export const reducerMap = {

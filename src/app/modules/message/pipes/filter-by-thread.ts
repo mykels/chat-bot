@@ -1,6 +1,6 @@
 import {Pipe, PipeTransform} from '@angular/core';
 import {Message} from '../types/message';
-import {Thread} from '../types/thread';
+import {Thread} from '../../thread/types/thread';
 
 @Pipe({name: 'filterByThread'})
 export class FilterByThread implements PipeTransform {

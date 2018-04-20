@@ -1,6 +1,6 @@
 import {ADD_MESSAGE, MessageActions} from './message.actions';
 import {AbstractReducer} from '../util/abstract-reducer';
-import {Message} from '../../../thread/types/message';
+import {Message} from '../../../message/types/message';
 
 export class MessageReducer extends AbstractReducer<Message[], MessageActions> {
   constructor() {
@@ -9,7 +9,7 @@ export class MessageReducer extends AbstractReducer<Message[], MessageActions> {
   }
 
   addMessage(messages: Message[], action: MessageActions) {
-    const newMessage: Message = action.payload;
+    const newMessage: Message = action.payload.message;
     console.log(`handling dispatched action [${ADD_MESSAGE}] with message [${newMessage.id}]`);
     return [...messages, newMessage];
   }

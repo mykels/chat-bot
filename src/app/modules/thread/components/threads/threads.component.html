@@ -4,9 +4,9 @@
       <h4>Messenger</h4>
     </div>
     <div class="thread-list-container">
-      <cb-thread *ngFor="let thread of (threads$ | async) trackBy:extractId"
+      <cb-thread *ngFor="let thread of (threads$ | async) trackBy:trackByThreadId"
                  [thread]="thread"
-                 [senderUser]="thread.sender | extractUser"
+                 [user]="thread.user | extractUser"
                  (onSelect)="selectThread($event)">
       </cb-thread>
     </div>

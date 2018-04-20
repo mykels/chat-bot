@@ -1,5 +1,7 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {Message} from '../../../thread/types/message';
+import {Message} from '../../../message/types/message';
+import {UserService} from '../../../user/services/user.service';
+import {generateId} from '../../../core/services/utils';
 
 export const ENTER_KEY_CODE = 13;
 
@@ -11,8 +13,11 @@ export const ENTER_KEY_CODE = 13;
 })
 export class ConversationTypingBarComponent implements OnInit {
   @Output() onSend = new EventEmitter<Message>();
-
   messageContent = '';
+
+  constructor(private userService: UserService) {
+
+  }
 
   ngOnInit(): void {
   }
@@ -30,12 +35,13 @@ export class ConversationTypingBarComponent implements OnInit {
   }
 
   constructMessage(): Message {
-    // TODO: choose sender to be current user
-
     return {
-      id: Math.floor(Math.random() * 100000),
+      id: generateId(),
+      sender: this.userService.getLoggedUser().id,
       content: this.messageContent,
-      date: new Date()
+      date: new Date(),
+      seen: false,
+      self: true
     }
   }
 }

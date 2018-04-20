@@ -17,23 +17,25 @@
   max-height: 42px;
 }
 
-.sender-avatar-container {
+.subject-avatar-container {
   flex-basis: auto;
   flex-grow: 1;
   justify-content: center;
 }
 
-.sender-avatar-container > img {
+.subject-avatar-container > img {
   border-radius: 50%;
   min-height: 50px;
   max-height: 60px;
 }
 
-.sender-name-container {
+.subject-name-container {
   flex: 8;
   margin: 10px;
 }
 
 .conversation-messages-container {
   flex: 16;
+  overflow-x: hidden;
+  overflow-y: auto;
 }

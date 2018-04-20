@@ -4,7 +4,8 @@
   </div>
   <div class="chat-panel">
     <div class="user-chat" *ngIf="receiver">
-      <cb-conversation [receiver]="receiver">
+      <cb-conversation [subject]="receiver"
+                       [messages]="(messages$ | async) | filterByParticipants:loggedUser.id:receiver.id | slice:-5">
       </cb-conversation>
     </div>
     <div class="users-container">

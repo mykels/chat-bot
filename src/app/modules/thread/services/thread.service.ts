@@ -1,13 +1,15 @@
 import {Injectable} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {AppState} from '../../core/store/types/app-state';
-import {Thread} from '../types/thread';
-import {AddThreadAction} from '../../core/store/thread/thread.actions';
+import {generateId} from '../../core/services/utils';
+import {UserService} from '../../user/services/user.service';
+import {AddMessageAction} from '../../core/store/message/message.actions';
+import {Message} from '../../message/types/message';
+import 'rxjs/add/operator/take';
 
 @Injectable()
 export class ThreadService {
-  constructor(private store: Store<AppState>) {
-    this.init();
+  constructor(private store: Store<AppState>, private userService: UserService) {
   }
 
   init() {
@@ -15,14 +17,34 @@ export class ThreadService {
   }
 
   initThreads() {
-    this.dispatchNewThread({id: 1, sender: 1, receiver: 6, summary: 'This is a summary', date: new Date(), messages: []});
-    this.dispatchNewThread({id: 2, sender: 2, receiver: 6, summary: 'This is a summary', date: new Date(), messages: []});
-    this.dispatchNewThread({id: 3, sender: 3, receiver: 6, summary: 'This is a summary', date: new Date(), messages: []});
-    this.dispatchNewThread({id: 4, sender: 4, receiver: 6, summary: 'This is a summary', date: new Date(), messages: []});
-    this.dispatchNewThread({id: 5, sender: 5, receiver: 6, summary: 'This is a summary', date: new Date(), messages: []});
+    this.store.select('users')
+      .take(1)
+      .subscribe(users => {
+        for (let i = 0; i < users.length / 2; i++) {
+          this.dispatchNewMessage({
+            id: generateId(),
+            sender: this.userService.getLoggedUser().id,
+            receiver: users[i].id,
+            content: `Hi there ${users[i].name}`,
+            date: new Date(),
+            self: true,
+            seen: false
+          });
+        }
+
+        this.dispatchNewMessage({
+          id: generateId(),
+          sender: users[users.length - 1].id,
+          receiver: this.userService.getLoggedUser().id,
+          content: `Hi there ${this.userService.getLoggedUser().name}`,
+          date: new Date(),
+          self: false,
+          seen: false
+        });
+      });
   }
 
-  dispatchNewThread(thread: Thread) {
-    this.store.dispatch(new AddThreadAction(thread));
+  dispatchNewMessage(message: Message) {
+    this.store.dispatch(new AddMessageAction(message, this.userService.getLoggedUser()));
   }
 }

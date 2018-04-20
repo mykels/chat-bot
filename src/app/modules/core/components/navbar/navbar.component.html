@@ -3,11 +3,7 @@
     <img src="assets/images/logo.png">
   </div>
   <div class="nav-buttons-container">
-    <div class="navbar-button">
-      <i class="fa fa-comments"></i>
-      <span class="notification-badge">
-      4
-    </span>
-    </div>
+    <cb-notification-banner [notificationCount]="unseenMessages">
+    </cb-notification-banner>
   </div>
 </div>

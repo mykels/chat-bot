@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Thread} from '../../types/thread';
-import {Message} from '../../types/message';
+import {Message} from '../../../message/types/message';
 
 @Component({
   selector: 'cb-thread-details',

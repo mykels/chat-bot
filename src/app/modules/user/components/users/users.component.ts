@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {User} from '../../types/user';
 
 @Component({
@@ -9,12 +9,12 @@ import {User} from '../../types/user';
 })
 export class UsersComponent implements OnInit {
   @Input() users: User[];
-  @Input() onSelect = new EventEmitter<User>();
+  @Output() onSelect = new EventEmitter<User>();
 
   ngOnInit(): void {
   }
 
-  trackByUserId(user: User): number {
+  trackByUserId(user: User): string {
     return user.id;
   }
 

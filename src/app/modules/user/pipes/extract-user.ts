@@ -8,7 +8,7 @@ export class ExtractUser implements PipeTransform {
 
   }
 
-  transform(userId: number, ...args: any[]): User {
+  transform(userId: string, ...args: any[]): User {
     return this.userService.getById(userId);
   }
 }

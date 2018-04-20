@@ -1,13 +1,13 @@
 <div class="conversation-container">
   <div class="conversation-header">
-    <div class="sender-avatar-container">
-      <img [src]="receiver?.avatar"/>
+    <div class="subject-avatar-container">
+      <img [src]="subject.avatar"/>
     </div>
-    <div class="sender-name-container">
-      {{receiver?.name}}
+    <div class="subject-name-container">
+      {{subject.name}}
     </div>
   </div>
-  <div class="conversation-messages-container">
+  <div #scrollContainer class="conversation-messages-container">
     <cb-conversation-messages
       [messages]="messages">
     </cb-conversation-messages>

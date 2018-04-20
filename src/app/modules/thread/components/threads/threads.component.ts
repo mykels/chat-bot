@@ -3,10 +3,10 @@ import {Observable} from 'rxjs/Observable';
 import {Thread} from '../../types/thread';
 import {AppState} from '../../../core/store/types/app-state';
 import {Store} from '@ngrx/store';
-import {Message} from '../../types/message';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/filter';
+import {Message} from '../../../message/types/message';
 
 @Component({
   selector: 'cb-threads',
@@ -27,7 +27,7 @@ export class ThreadsComponent implements OnInit {
     this.initMessages();
   }
 
-  extractId(thread: Thread) {
+  trackByThreadId(thread: Thread) {
     return thread.id;
   }
 

@@ -5,7 +5,7 @@
   "private": true,
   "angular-cli": {},
   "scripts": {
-    "start": "ng serve --port 4400",
+    "start": "ng serve --port 4400 --open",
     "dist": "ng serve --aot --port 4400"
   },
   "dependencies": {
