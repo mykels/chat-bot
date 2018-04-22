@@ -9,5 +9,8 @@
     <cb-notification-panel [notifications]="notifications$ | async"
                            [show]="showNotifications">
     </cb-notification-panel>
+    <cb-user-banner class="user-banner-container"
+                    [user]="loggedUser">
+    </cb-user-banner>
   </div>
 </div>

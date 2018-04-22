@@ -23,29 +23,6 @@
   flex: 8;
 }
 
-.navbar-button {
-  color: white;
-  display: inline-block;
-  position: relative;
-  padding: 2px 5px;
-  cursor: pointer;
-  margin-right: 10px;
-  font-size: 2em;
-}
-
-.navbar-button:hover {
-  color: #d4d4d4;
-  transition: linear .2s;
-}
-
-.notification-badge {
-  background-color: #fa3e3e;
-  border-radius: 4px;
-  color: white;
-  padding: 1px 6px;
-  font-size: 16px;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  top: 0;
-  right: 0;
+.user-banner-container {
+  margin-right: 20px;
 }

@@ -1,7 +1,7 @@
-import {FilterByThread} from './filter-by-thread';
-import {FilterByParticipants} from './filter-by-participants';
+import {FilterByThreadPipe} from './filter-by-thread.pipe';
+import {FilterByParticipantsPipe} from './filter-by-participants.pipe';
 
 export const MESSAGE_PIPES = [
-  FilterByThread,
-  FilterByParticipants
+  FilterByThreadPipe,
+  FilterByParticipantsPipe
 ];

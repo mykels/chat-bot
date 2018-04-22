@@ -8,6 +8,7 @@ import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 })
 export class UsersAvatarComponent implements OnInit {
   @Input() avatar: string;
+  @Input() size = 50;
 
   ngOnInit(): void {
   }

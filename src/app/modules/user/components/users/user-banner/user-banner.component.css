@@ -1,0 +1,18 @@
+.user-banner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user-banner:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 2px #3b6caf;
+}
+
+.user-name {
+  margin-left: 5px;
+  font-size: 12px;
+  color: #fff;
+  font-weight: bold;
+}

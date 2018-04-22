@@ -2,7 +2,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 import {User} from '../types/user';
 
 @Pipe({name: 'sortByOnline'})
-export class SortByOnline implements PipeTransform {
+export class SortByOnlinePipe implements PipeTransform {
   transform(users: User[], ...args: any[]): any {
     return (users && users.length) > 0 ? this.sortUsersByOnline(users) : [];
   }

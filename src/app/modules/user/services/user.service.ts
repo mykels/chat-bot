@@ -27,7 +27,7 @@ export class UserService {
     this.loggedUser = {
       id: generateId(),
       name: 'Micha Sherman',
-      avatar: 'assets/images/avatars/dy.jpg',
+      avatar: 'assets/images/avatars/ms.jpg',
       online: true
     }
   }

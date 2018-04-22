@@ -3,7 +3,7 @@ import {UserService} from '../services/user.service';
 import {User} from '../types/user';
 
 @Pipe({name: 'extractUser'})
-export class ExtractUser implements PipeTransform {
+export class ExtractUserPipe implements PipeTransform {
   constructor(private userService: UserService) {
 
   }

@@ -5,6 +5,8 @@ import 'rxjs/add/operator/reduce';
 import 'rxjs/add/operator/count';
 import {Observable} from 'rxjs/Observable';
 import {Notification} from '../../../notification/types/notification';
+import {User} from '../../../user/types/user';
+import {UserService} from '../../../user/services/user.service';
 
 @Component({
   selector: 'cb-navbar',
@@ -14,13 +16,16 @@ import {Notification} from '../../../notification/types/notification';
 export class NavbarComponent implements OnInit {
   showNotifications = false;
   notifications$: Observable<Notification[]>;
+  loggedUser: User;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>,
+              private userService: UserService) {
 
   }
 
   ngOnInit(): void {
     this.initNotifications();
+    this.initLoggedUser();
   }
 
   onNotificationBannerClick() {
@@ -29,5 +34,9 @@ export class NavbarComponent implements OnInit {
 
   private initNotifications() {
     this.notifications$ = this.store.select('notifications');
+  }
+
+  private initLoggedUser() {
+    this.loggedUser = this.userService.getLoggedUser();
   }
 }

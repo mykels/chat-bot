@@ -3,7 +3,7 @@ import {Message} from '../types/message';
 import {Thread} from '../../thread/types/thread';
 
 @Pipe({name: 'filterByThread'})
-export class FilterByThread implements PipeTransform {
+export class FilterByThreadPipe implements PipeTransform {
   transform(messages: Message[], ...args: any[]): any {
     const filteredThread = args[0] as Thread;
     return messages.filter(message =>
