@@ -14,14 +14,6 @@
 
 .subject-avatar-container {
   flex: 1;
-  text-align: center;
-}
-
-.subject-avatar-container > img {
-  max-width: 50px;
-  max-height: 50px;
-  border-radius: 50%;
-  justify-content: center;
 }
 
 .thread-content-container {

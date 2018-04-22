@@ -3,7 +3,11 @@
     <img src="assets/images/logo.png">
   </div>
   <div class="nav-buttons-container">
-    <cb-notification-banner [notificationCount]="unseenMessages">
+    <cb-notification-banner [notificationCount]="(notifications$ | async).length"
+                            (onClick)="onNotificationBannerClick()">
     </cb-notification-banner>
+    <cb-notification-panel [notifications]="notifications$ | async"
+                           [show]="showNotifications">
+    </cb-notification-panel>
   </div>
 </div>

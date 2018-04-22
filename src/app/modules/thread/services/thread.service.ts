@@ -6,6 +6,10 @@ import {UserService} from '../../user/services/user.service';
 import {AddMessageAction} from '../../core/store/message/message.actions';
 import {Message} from '../../message/types/message';
 import 'rxjs/add/operator/take';
+import {combineLatest} from 'rxjs/observable/combineLatest';
+import {Notification} from '../../notification/types/notification';
+import {UnselectNotificationAction} from '../../core/store/notification/notification.actions';
+import {OpenThreadAction} from 'app/modules/core/store/thread/thread.actions';
 
 @Injectable()
 export class ThreadService {
@@ -13,10 +17,11 @@ export class ThreadService {
   }
 
   init() {
-    this.initThreads();
+    this.simulateMessages();
+    this.subscribeToSelectedNotifications();
   }
 
-  initThreads() {
+  simulateMessages() {
     this.store.select('users')
       .take(1)
       .subscribe(users => {
@@ -46,5 +51,24 @@ export class ThreadService {
 
   dispatchNewMessage(message: Message) {
     this.store.dispatch(new AddMessageAction(message, this.userService.getLoggedUser()));
+  }
+
+  private subscribeToSelectedNotifications() {
+    const selectedNotifications$ = this.store.select('notifications')
+      .map(notifications => notifications.filter(notification => notification.selected))
+      .filter(selectedNotifications => selectedNotifications.length > 0);
+
+    const threads$ = this.store.select('threads').take(1); // TODO: this is a temporary solution
+
+    // TODO: something is fishy here, why is it called every time a thread changes??
+    combineLatest(selectedNotifications$, threads$).subscribe(([selectedNotifications, threads]) => {
+      const selectedNotification: Notification = selectedNotifications[0];
+      const [matchingThread] = threads.filter(thread => thread.user === selectedNotification.user);
+
+      if (selectedNotification.selected) {
+        this.store.dispatch(new UnselectNotificationAction(selectedNotification));
+        this.store.dispatch(new OpenThreadAction(matchingThread));
+      }
+    });
   }
 }

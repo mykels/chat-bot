@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/filter';
 import {Message} from '../../../message/types/message';
+import {RemoveNotificationAction} from '../../../core/store/notification/notification.actions';
 
 @Component({
   selector: 'cb-threads',
@@ -40,6 +41,10 @@ export class ThreadsComponent implements OnInit {
 
   private initThreads() {
     this.threads$ = this.store.select('threads');
+    this.threads$.subscribe(threads => {
+      const [threadToOpen] = threads.filter(thread => thread.opened);
+      this.selectedThread = threadToOpen;
+    });
   }
 
   private initMessages() {

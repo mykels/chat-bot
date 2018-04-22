@@ -1,0 +1,5 @@
+<div class="notification-panel" *ngIf="show" [@panelAppear]>
+  <cb-notification *ngFor="let notification of notifications"
+                   [notification]="notification">
+  </cb-notification>
+</div>

@@ -3,6 +3,8 @@ import {AppState} from '../../store/types/app-state';
 import {Store} from '@ngrx/store';
 import 'rxjs/add/operator/reduce';
 import 'rxjs/add/operator/count';
+import {Observable} from 'rxjs/Observable';
+import {Notification} from '../../../notification/types/notification';
 
 @Component({
   selector: 'cb-navbar',
@@ -10,22 +12,22 @@ import 'rxjs/add/operator/count';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  unseenMessages = 0;
+  showNotifications = false;
+  notifications$: Observable<Notification[]>;
 
   constructor(private store: Store<AppState>) {
 
   }
 
   ngOnInit(): void {
-    this.computeUnseenMessages();
+    this.initNotifications();
   }
 
-  private computeUnseenMessages() {
-    this.store.select('messages')
-      .subscribe(messages => {
-        this.unseenMessages = messages
-          .filter(message => !message.seen)
-          .reduce(count => count + 1, 0);
-      });
+  onNotificationBannerClick() {
+    this.showNotifications = !this.showNotifications;
+  }
+
+  private initNotifications() {
+    this.notifications$ = this.store.select('notifications');
   }
 }

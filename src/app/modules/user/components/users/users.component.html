@@ -1,14 +1,4 @@
 <div *ngFor="let user of users | sortByOnline trackBy:trackByUserId"
-     class="user-container"
-     (click)="onClick(user)"
      [attr.disabled]="!user.online">
-  <div class="user-avatar-container">
-    <img [src]="user.avatar"/>
-  </div>
-  <div class="user-name-container">
-    {{user.name}}
-  </div>
-  <div class="user-online-indicator"
-       [ngClass]="{'online-indicator':user.online,'offline-indicator':!user.online}">
-  </div>
+  <cb-user [user]="user" (onSelect)="onClick($event)"></cb-user>
 </div>

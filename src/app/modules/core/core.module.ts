@@ -10,6 +10,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ThreadModule} from '../thread/thread.module';
 import {STORE_INJECTABLES} from './store';
 import {BotModule} from '../bot/bot.module';
+import {NotificationModule} from '../notification/notification.module';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -18,6 +20,8 @@ import {BotModule} from '../bot/bot.module';
     ChatModule,
     UserModule,
     BotModule,
+    NotificationModule,
+    SharedModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(reducerMap, {initialState})
   ],

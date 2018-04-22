@@ -1,0 +1,8 @@
+<div class="notification" (click)="onClick()">
+  <div class="notification-avatar-container">
+    <cb-user-avatar [avatar]="(notification.user | extractUser).avatar"></cb-user-avatar>
+  </div>
+  <div class="notification-content-container">
+    {{notification.content}}
+  </div>
+</div>

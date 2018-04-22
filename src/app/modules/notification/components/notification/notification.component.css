@@ -1,0 +1,19 @@
+.notification {
+  display: flex;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.15);
+}
+
+.notification:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 2px #1e2a4c;
+}
+
+.notification-avatar-container {
+  flex: 1;
+  margin: 2px 0 0 6px;
+}
+
+.notification-content-container {
+  flex: 4;
+}

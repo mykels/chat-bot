@@ -1,0 +1,11 @@
+<div class="user-container" (click)="onSelect.emit(user)">
+  <div class="user-avatar-container">
+    <cb-user-avatar [avatar]="user.avatar"></cb-user-avatar>
+  </div>
+  <div class="user-name-container">
+    {{user.name}}
+  </div>
+  <div class="user-online-indicator"
+       [ngClass]="{'online-indicator':user.online,'offline-indicator':!user.online}">
+  </div>
+</div>

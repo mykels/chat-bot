@@ -1,0 +1,15 @@
+.notification-panel {
+  background: #fff;
+  border: 1px solid rgba(100, 100, 100, .4);
+  border-radius: 0 0 2px 2px;
+  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+  color: #1d2129;
+  position: absolute;
+  overflow-x: hidden;
+  overflow-y: auto;
+  top: 60px;
+  right: 5px;
+  width: 430px;
+  max-height: 500px;
+}

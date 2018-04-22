@@ -3,5 +3,6 @@ export class Thread {
   user: string;
   summary: string;
   date: Date;
+  opened?: boolean;
   messages: string[];
 }
