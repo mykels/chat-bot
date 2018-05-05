@@ -3,15 +3,16 @@ import {Message} from '../../../message/types/message';
 import {User} from '../../../user/types/user';
 
 export const ADD_MESSAGE = 'ADD_MESSAGE';
+export const UPDATE_SEEN_MESSAGE = 'UPDATE_SEEN_MESSAGE';
 
 export class AddMessageAction extends AbstractAction<{ message: Message, loggedUser: User }> {
-  constructor(message: Message, private loggedUser: User) {
-    super({message, loggedUser});
-  }
-
-  get type(): string {
-    return ADD_MESSAGE;
-  }
+    constructor(message: Message, loggedUser: User) {
+        super(ADD_MESSAGE, {message, loggedUser});
+    }
 }
 
-export type MessageActions = AddMessageAction;
+export class UpdateSeenMessageAction extends AbstractAction<Message> {
+    constructor(message: Message) {
+        super(UPDATE_SEEN_MESSAGE, message);
+    }
+}

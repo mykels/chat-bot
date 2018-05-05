@@ -1,17 +1,17 @@
 <div class="chat-container">
-  <div class="chat-header">
-    <h4>Chat</h4>
-  </div>
-  <div class="chat-panel">
-    <div class="user-chat" *ngIf="receiver">
-      <cb-conversation [subject]="receiver"
-                       [messages]="(messages$ | async) | filterByParticipants:loggedUser.id:receiver.id | slice:-5">
-      </cb-conversation>
+    <div class="chat-header">
+        <h4>Chat</h4>
     </div>
-    <div class="users-container">
-      <cb-users [users]="users$ | async"
-                (onSelect)="onSelect($event)">
-      </cb-users>
+    <div class="chat-panel">
+        <div class="user-chat" *ngIf="receiver">
+            <cb-conversation [subject]="receiver"
+                             [messages]="(messages$ | async) | filterByParticipants:loggedUser.id:receiver.id | slice:-5">
+            </cb-conversation>
+        </div>
+        <div class="users-container">
+            <cb-users [users]="users$ | async"
+                      (onSelect)="onSelect($event)">
+            </cb-users>
+        </div>
     </div>
-  </div>
 </div>

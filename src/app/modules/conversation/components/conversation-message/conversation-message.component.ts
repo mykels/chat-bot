@@ -3,15 +3,15 @@ import {Message} from '../../../message/types/message';
 import {CONVERSATION_MESSAGES_ANIMATIONS} from '../conversation-messages/conversation-messages.animation';
 
 @Component({
-  selector: 'cb-conversation-message',
-  templateUrl: './conversation-message.component.html',
-  styleUrls: ['./conversation-message.component.css'],
-  animations: CONVERSATION_MESSAGES_ANIMATIONS,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'cb-conversation-message',
+    templateUrl: './conversation-message.component.html',
+    styleUrls: ['./conversation-message.component.css'],
+    animations: CONVERSATION_MESSAGES_ANIMATIONS,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConversationMessageComponent implements OnInit {
-  @Input() message: Message;
+    @Input() message: Message;
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 }

@@ -1,4 +1,22 @@
-img {
+.avatar-container {
+  position: relative;
+}
+
+.avatar-container > img {
   border-radius: 50%;
   justify-content: center;
 }
+
+.notification-indicator {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  max-width: 10px;
+  margin-left: 4px;
+  box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+  background: #7bbafa;
+}
+

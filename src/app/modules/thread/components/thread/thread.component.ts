@@ -4,25 +4,25 @@ import {Thread} from '../../types/thread';
 import {User} from '../../../user/types/user';
 
 @Component({
-  selector: 'cb-thread',
-  templateUrl: './thread.component.html',
-  styleUrls: ['./thread.component.css'],
-  animations: THREAD_ANIMATIONS,
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'cb-thread',
+    templateUrl: './thread.component.html',
+    styleUrls: ['./thread.component.css'],
+    animations: THREAD_ANIMATIONS,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ThreadComponent implements OnInit {
-  @Input() thread: Thread;
-  @Input() user: User;
-  @Output() onSelect = new EventEmitter<Thread>();
+    @Input() thread: Thread;
+    @Input() user: User;
+    @Output() onSelect = new EventEmitter<Thread>();
 
-  constructor() {
+    constructor() {
 
-  }
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
 
-  onClick(): void {
-    this.onSelect.emit(this.thread);
-  }
+    onClick(): void {
+        this.onSelect.emit(this.thread);
+    }
 }

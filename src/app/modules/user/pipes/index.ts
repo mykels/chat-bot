@@ -1,9 +1,9 @@
 import {ExtractUserPipe} from './extract-user.pipe';
-import {SortByOnlinePipe} from './sort-by-online.pipe';
 import {FirstNamePipe} from './first-name.pipe';
+import {SortByUserNamePipe} from './sort-by-user-name.pipe';
 
 export const USER_PIPES = [
   ExtractUserPipe,
-  SortByOnlinePipe,
+  SortByUserNamePipe,
   FirstNamePipe
 ];

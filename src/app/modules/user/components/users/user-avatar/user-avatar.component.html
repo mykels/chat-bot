@@ -1,2 +1,6 @@
-<img [src]="avatar"
-     [ngStyle]="{'max-width':size + 'px', 'max-height': size + 'px'}"/>
+<div class="avatar-container"
+     [ngStyle]="{'max-width':size + 'px', 'max-height': size + 'px'}">
+  <img [src]="avatar"
+       [ngStyle]="{'max-width':size + 'px', 'max-height': size + 'px'}"/>
+  <div class="notification-indicator" *ngIf="notified"></div>
+</div>

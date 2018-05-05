@@ -1,4 +1,6 @@
-<div *ngFor="let user of users | sortByOnline trackBy:trackByUserId"
+<div *ngFor="let user of users | sortByUserName trackBy:trackByUserId"
      [attr.disabled]="!user.online">
-  <cb-user [user]="user" (onSelect)="onClick($event)"></cb-user>
+    <cb-user [user]="user"
+             (onSelect)="onClick($event)">
+    </cb-user>
 </div>

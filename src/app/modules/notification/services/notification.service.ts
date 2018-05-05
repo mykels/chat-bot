@@ -62,7 +62,7 @@ export class NotificationService {
   }
 
   private emptyNotifications() {
-    this.store.dispatch(new EmptyNotificationsAction(null));
+    this.store.dispatch(new EmptyNotificationsAction());
   }
 
   private constructContent(sender: User, messages: Message[]) {

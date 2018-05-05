@@ -1,19 +1,19 @@
 <div class="threads-container">
-  <div class="thread-selector-container">
-    <div class="threads-header">
-      <h4>Messenger</h4>
+    <div class="thread-selector-container">
+        <div class="threads-header">
+            <h4>Messenger</h4>
+        </div>
+        <div class="thread-list-container">
+            <cb-thread *ngFor="let thread of (threads$ | async) trackBy:trackByThreadId"
+                       [thread]="thread"
+                       [user]="thread.user | extractUser"
+                       (onSelect)="selectThread($event)">
+            </cb-thread>
+        </div>
     </div>
-    <div class="thread-list-container">
-      <cb-thread *ngFor="let thread of (threads$ | async) trackBy:trackByThreadId"
-                 [thread]="thread"
-                 [user]="thread.user | extractUser"
-                 (onSelect)="selectThread($event)">
-      </cb-thread>
+    <div class="thread-details-container" *ngIf="selectedThread">
+        <cb-thread-details [thread]="selectedThread"
+                           [messages]="(messages$ | async) | filterByThread:selectedThread">
+        </cb-thread-details>
     </div>
-  </div>
-  <div class="thread-details-container" *ngIf="selectedThread">
-    <cb-thread-details [thread]="selectedThread"
-                       [messages]="(messages$ | async) | filterByThread:selectedThread">
-    </cb-thread-details>
-  </div>
 </div>

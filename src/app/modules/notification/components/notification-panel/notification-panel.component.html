@@ -1,5 +1,5 @@
 <div class="notification-panel" *ngIf="show" [@panelAppear]>
-  <cb-notification *ngFor="let notification of notifications"
+  <cb-notification *ngFor="let notification of notifications | sortByNotifiedUser"
                    [notification]="notification">
   </cb-notification>
 </div>

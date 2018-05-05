@@ -1,15 +1,19 @@
 import {Action} from '@ngrx/store';
 
 export abstract class AbstractAction<T> implements Action {
-  readonly _payload: T;
+    readonly _payload: T;
+    readonly _type: string;
 
-  constructor(payload: T) {
-    this._payload = payload;
-  }
+    constructor(type: string, payload: T) {
+        this._type = type;
+        this._payload = payload;
+    }
 
-  get payload(): T {
-    return this._payload;
-  }
+    get payload(): T {
+        return this._payload;
+    }
 
-  abstract get type(): string;
+    get type(): string {
+        return this._type;
+    }
 }

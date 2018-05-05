@@ -8,7 +8,6 @@ import {Message} from '../../message/types/message';
 import 'rxjs/add/operator/take';
 import {combineLatest} from 'rxjs/observable/combineLatest';
 import {Notification} from '../../notification/types/notification';
-import {UnselectNotificationAction} from '../../core/store/notification/notification.actions';
 import {OpenThreadAction} from 'app/modules/core/store/thread/thread.actions';
 
 @Injectable()
@@ -66,7 +65,6 @@ export class ThreadService {
       const [matchingThread] = threads.filter(thread => thread.user === selectedNotification.user);
 
       if (selectedNotification.selected) {
-        this.store.dispatch(new UnselectNotificationAction(selectedNotification));
         this.store.dispatch(new OpenThreadAction(matchingThread));
       }
     });

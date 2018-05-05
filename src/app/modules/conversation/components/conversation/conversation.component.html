@@ -1,7 +1,9 @@
 <div class="conversation-container">
   <div class="conversation-header">
     <div class="subject-avatar-container">
-      <img [src]="subject.avatar"/>
+      <cb-user-avatar [avatar]="subject.avatar"
+                      [notified]="subject.notified">
+      </cb-user-avatar>
     </div>
     <div class="subject-name-container">
       {{subject.name}}

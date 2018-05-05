@@ -6,9 +6,10 @@ import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./user-avatar.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UsersAvatarComponent implements OnInit {
+export class UserAvatarComponent implements OnInit {
   @Input() avatar: string;
   @Input() size = 50;
+  @Input() notified = false;
 
   ngOnInit(): void {
   }
