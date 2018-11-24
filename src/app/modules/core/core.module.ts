@@ -12,6 +12,7 @@ import {STORE_INJECTABLES} from './store';
 import {BotModule} from '../bot/bot.module';
 import {NotificationModule} from '../notification/notification.module';
 import {SharedModule} from '../shared/shared.module';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 @NgModule({
   imports: [
@@ -23,7 +24,11 @@ import {SharedModule} from '../shared/shared.module';
     NotificationModule,
     SharedModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot(reducerMap, {initialState})
+    StoreModule.forRoot(reducerMap, {initialState}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 50,
+      logOnly: false,
+    }),
   ],
   declarations: [
     ...CORE_COMPONENTS

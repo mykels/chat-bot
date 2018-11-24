@@ -5,10 +5,10 @@ import {generateId} from '../../core/services/utils';
 import {UserService} from '../../user/services/user.service';
 import {AddMessageAction} from '../../core/store/message/message.actions';
 import {Message} from '../../message/types/message';
-import 'rxjs/add/operator/take';
-import {combineLatest} from 'rxjs/observable/combineLatest';
 import {Notification} from '../../notification/types/notification';
-import {OpenThreadAction} from 'app/modules/core/store/thread/thread.actions';
+import {filter, map, take} from 'rxjs/operators';
+import {combineLatest} from 'rxjs';
+import {OpenThreadAction} from '../../core/store/thread/thread.actions';
 
 @Injectable()
 export class ThreadService {
@@ -22,7 +22,7 @@ export class ThreadService {
 
   simulateMessages() {
     this.store.select('users')
-      .take(1)
+      .pipe(take(1))
       .subscribe(users => {
         for (let i = 0; i < users.length / 2; i++) {
           this.dispatchNewMessage({
@@ -53,11 +53,11 @@ export class ThreadService {
   }
 
   private subscribeToSelectedNotifications() {
-    const selectedNotifications$ = this.store.select('notifications')
-      .map(notifications => notifications.filter(notification => notification.selected))
-      .filter(selectedNotifications => selectedNotifications.length > 0);
+    const selectedNotifications$ = this.store.select('notifications').pipe(
+      map(notifications => notifications.filter(notification => notification.selected)),
+      filter(selectedNotifications => selectedNotifications.length > 0));
 
-    const threads$ = this.store.select('threads').take(1); // TODO: this is a temporary solution
+    const threads$ = this.store.select('threads').pipe(take(1)); // TODO: this is a temporary solution
 
     // TODO: something is fishy here, why is it called every time a thread changes??
     combineLatest(selectedNotifications$, threads$).subscribe(([selectedNotifications, threads]) => {

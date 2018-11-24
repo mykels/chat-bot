@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {CHAT_ANIMATIONS} from './chat.animations';
 import {User} from '../../../user/types/user';
 import {AppState} from '../../../core/store/types/app-state';

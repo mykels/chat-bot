@@ -6,6 +6,7 @@ import {Notification} from '../../../notification/types/notification';
 export interface AppState {
   users: User[];
   messages: Message[];
+  lastMessage: Message;
   threads: Thread[];
   notifications: Notification[];
 }

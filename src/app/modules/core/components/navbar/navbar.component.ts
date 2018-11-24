@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AppState} from '../../store/types/app-state';
 import {Store} from '@ngrx/store';
-import 'rxjs/add/operator/reduce';
-import 'rxjs/add/operator/count';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {Notification} from '../../../notification/types/notification';
 import {User} from '../../../user/types/user';
 import {UserService} from '../../../user/services/user.service';

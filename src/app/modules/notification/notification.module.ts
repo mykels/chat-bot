@@ -3,8 +3,8 @@ import {NOTIFICATION_COMPONENTS} from './components';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from '../shared/shared.module';
 import {UserModule} from '../user/user.module';
-import {NOTIFICATION_SERVICES} from 'app/modules/notification/services';
 import {NOTIFICATION_PIPES} from './pipe';
+import {NOTIFICATION_SERVICES} from './services';
 
 @NgModule({
   imports: [

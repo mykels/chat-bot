@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {User} from '../types/user';
-import {interval} from 'rxjs/observable/interval';
 import {Store} from '@ngrx/store';
 import {AddUserAction, UpdateUserAction} from '../../core/store/user/user.actions';
 import {AppState} from '../../core/store/types/app-state';
 import {generateId} from '../../core/services/utils';
 import {Thread} from '../../thread/types/thread';
+import {interval} from 'rxjs';
 
 @Injectable()
 export class UserService {

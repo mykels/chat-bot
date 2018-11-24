@@ -1,13 +1,9 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import {Thread} from '../../types/thread';
 import {AppState} from '../../../core/store/types/app-state';
 import {Store} from '@ngrx/store';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/filter';
 import {Message} from '../../../message/types/message';
-import {RemoveNotificationAction} from '../../../core/store/notification/notification.actions';
 
 @Component({
   selector: 'cb-threads',
